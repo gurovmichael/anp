@@ -1,0 +1,53 @@
+<div class="container">
+
+
+    <div class="page-header">
+        <h1>Оюъекты в работе</h1>
+    </div>
+
+
+
+    <div ng-controller="ObjContr">
+
+        Group by:
+        <select class="form-control" ng-model="groupby">
+            <option value="dealType">Тип сделки</option>
+            <option value="metro">Метро</option>
+            <option value="address">Адрес</option>
+        </select>
+
+        <p>Сгруппировано по: <b>{{groupby}}</b></p>
+
+
+        <table ng-table="tableParams" class="table">
+            <tbody ng-repeat="group in $groups">
+            <tr class="ng-table-group">
+                <td colspan="{{$columns.length}}">
+                    <a href="" ng-click="group.$hideRows = !group.$hideRows">
+                        <span class="glyphicon"
+                              ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+                        <!--<strong>{{ group.value }}</strong>-->
+                        <strong ng-bind-html="group.value"></strong>
+                    </a>
+                </td>
+            </tr>
+            <tr ng-hide="group.$hideRows" ng-repeat="object in group.data" >
+                <td sortable="id" data-title="'#Id'" ng-bind-html="group.value">
+                    {{object.id}}
+                </td>
+                <td sortable="dealType" data-title="'Тип сделки'" ng-bind-html="object.dealType">
+                    <!--{{object.dealType}}-->
+                </td>
+                <td sortable="metro" data-title="'Метро'" ng-bind-html="object.metro">
+                    <!--{{object.metro}}-->
+                </td>
+                <td sortable="address" data-title="'Адрес'" ng-bind-html="object.address">
+                    <!--{{object.address}}-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

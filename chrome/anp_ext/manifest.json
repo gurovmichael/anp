@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "ANP-TSN-RENT",
+    "version": "1.0",
+    "description": "For anp with love",
+    "permissions": [
+        "background", "notifications"
+    ],
+    "browser_action": {
+        "default_title": "Hello ANP!", //�����, ����������� ��� ��������� ������� �� ������ (���� �� �����, �� ��������� �������� ����������)
+        "default_icon": "img/agent.png", //������ ��� ������ ���������� (�� ���������)
+        "default_popup": "popup.html" //����������� ���� ��� ����� �� ������
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*"],
+            "css": ["css.css"],
+            "js": ["highlight.js", "check.js", "jquery-1.9.1.js", "sender.js", "factory.js", "click.js"],
+            "run_at": "document_end",
+            "all_frames": true
+        }
+    ],
+    "web_accessible_resources": [
+        "img/48ok.png",
+        "img/48bad.png"
+    ]
+
+}

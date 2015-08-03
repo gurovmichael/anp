@@ -1,0 +1,22 @@
+<!-- The dnd-list directive allows to drop elements into it.
+     The dropped data will be added to the referenced list -->
+<ul dnd-list="selectedCategories">
+    <!-- The dnd-draggable directive makes an element draggable and will
+         transfer the object that was assigned to it. If an element was
+         dragged away, you have to remove it from the original list
+         yourself using the dnd-moved attribute -->
+    <li ng-repeat="item in selectedCategories"
+        dnd-draggable="item"
+        dnd-moved="selectedCategories.splice($index, 1)"
+        dnd-effect-allowed="move"
+        dnd-selected="models.selected = item"
+        ng-class="{'selected': models.selected === item}"
+        >
+        {{item.label}}
+
+        <input type="number" class="form-control itemRow" placeholder="рубли" ng-nint="item.money=0" ng-model="item.money" ng->
+        <input type="number" class="form-control itemRow" placeholder="процент" ng-model="item.percent">
+
+
+    </li>
+</ul>

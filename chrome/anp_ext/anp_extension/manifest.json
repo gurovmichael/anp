@@ -1,0 +1,12 @@
+{
+    "manifest_version": 2,
+    "name": "ANPGrabber",
+    "version": "1.0",
+    "description": "For anp with love",
+    "browser_action": {
+        "default_title": "SALAM ANP!", //�����, ����������� ��� ��������� ������� �� ������ (���� �� �����, �� ��������� �������� ����������)
+        "default_icon": "img/agent.png", //������ ��� ������ ���������� (�� ���������)
+        "default_popup": "popup.html" //����������� ���� ��� ����� �� ������
+    }
+
+}
